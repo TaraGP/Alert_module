@@ -1,0 +1,21 @@
+//input for mail
+{
+    "alertType" : "mail",
+    "recipients" : "tara.enner@gmail.com",
+    "messageBody" : "Hello from Tara",
+    "title" : "test mail",
+    "html" : " <sup> Its a test</sup>"
+}
+
+//input for sms
+ {
+    "alertType" : "sms",
+    "recipients" : "+919448170557",
+    "messageBody" : "Hello from Tara"
+ }
+//input for whatsapp
+{
+    "alertType" : "whatsapp",
+    "recipients" : "+919448170557",
+    "messageBody" : "Hello from Tara"
+ }

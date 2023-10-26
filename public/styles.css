@@ -1,0 +1,31 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  form {
+    display: inline-block;
+    text-align: left;
+    margin: 20px auto;
+  }
+  
+  label, select, input, textarea {
+    display: block;
+    margin: 5px;
+  }
+  
+  button {
+    background-color: #0074cc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
