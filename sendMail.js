@@ -4,6 +4,11 @@ const config = require('./public/config');
 
 async function sendMail(recipients, subject, text, html) {
   try {
+    console.log('Sending email to recipients:', recipients);
+    console.log('Email subject:', subject);
+    console.log('Email text:', text);
+    console.log('Email HTML:', html);
+    
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {

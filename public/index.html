@@ -29,6 +29,85 @@
 
     <div id="mailFields" style="display: none;">
       <label for="mailRecipients">Recipients (Comma-separated email addresses):</label>
+      <input type="email" id="mailRecipients" name="mailRecipients" required>
+      <label for="mailMessageBody">Message Body (same as text):</label>
+      <textarea id="mailMessageBody" name="mailMessageBody" required></textarea>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title">
+      <label for="html">HTML:</label>
+      <textarea id="html" name="html"></textarea>
+    </div>
+
+    <button type="submit" name="submit">Send Alert</button>
+  </form>
+
+  <script type="module" src="script.js"></script>
+
+  <script>
+    // JavaScript to handle showing/hiding fields based on the selected alert type
+    const smsRadio = document.getElementById('sms');
+    const whatsappRadio = document.getElementById('whatsapp');
+    const mailRadio = document.getElementById('mail');
+    const smsFields = document.getElementById('smsFields');
+    const whatsappFields = document.getElementById('whatsappFields');
+    const mailFields = document.getElementById('mailFields');
+    
+    function toggleFields() {
+      smsFields.style.display = smsRadio.checked ? 'block' : 'none';
+      smsRecipients.disabled= !smsRadio.checked;
+      smsMessageBody.disabled= !smsRadio.checked;
+      whatsappFields.style.display = whatsappRadio.checked ? 'block' : 'none';
+      whatsappRecipients.disabled=! whatsappRadio.checked;
+      whatsappMessageBody.disabled= ! whatsappRadio.checked;
+      mailFields.style.display = mailRadio.checked ? 'block' : 'none';
+      mailRecipients.disabled= !mailRadio.checked;
+      mailMessageBody.disabled=!mailRadio.checked;
+    }
+
+    // Initial state
+    toggleFields();
+
+    // Event listeners for radio button changes
+    smsRadio.addEventListener('change', toggleFields);
+    whatsappRadio.addEventListener('change', toggleFields);
+    mailRadio.addEventListener('change', toggleFields);
+  </script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="utf-8"> 
+  <title>Alert Module</title> 
+</head>
+<body>
+  <h1>Alerting Mechanism Selection</h1>
+  <form id="alertForm" action="/send-alert" method="post">
+    <label for="alertType">Select Alert Mechanism:</label>
+    <input type="radio" name="alertType" value="sms" id="sms"> SMS 
+    <input type="radio" name="alertType" value="whatsapp" id="whatsapp"> WhatsApp
+    <input type="radio" name="alertType" value="mail" id="mail"> Email
+
+    <div id="smsFields" style="display: none;">
+      <label for="smsRecipients">Recipients (Comma-separated numbers):</label>
+      <input type="text" id="smsRecipients" name="smsRecipients" required>
+      <label for="smsMessageBody">Message Body:</label>
+      <textarea id="smsMessageBody" name="smsMessageBody" required></textarea>
+    </div>
+
+    <div id="whatsappFields" style="display: none;">
+      <label for="whatsappRecipients">Recipients (Comma-separated numbers):</label>
+      <input type="text" id="whatsappRecipients" name="whatsappRecipients" required>
+      <label for="whatsappMessageBody">Message Body:</label>
+      <textarea id="whatsappMessageBody" name="whatsappMessageBody" required></textarea>
+    </div>
+
+    <div id="mailFields" style="display: none;">
+      <label for="mailRecipients">Recipients (Comma-separated email addresses):</label>
       <input type="text" id="mailRecipients" name="mailRecipients" required>
       <label for="mailMessageBody">Message Body (same as text):</label>
       <textarea id="mailMessageBody" name="mailMessageBody" required></textarea>
@@ -41,7 +120,7 @@
     <button type="submit" name="submit">Send Alert</button>
   </form>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 
   <script>
     // JavaScript to handle showing/hiding fields based on the selected alert type
@@ -67,4 +146,4 @@
     mailRadio.addEventListener('change', toggleFields);
   </script>
 </body>
-</html>
+</html> -->

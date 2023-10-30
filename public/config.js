@@ -1,3 +1,4 @@
+//config.js
 module.exports = {
     accountSid : 'AC2c1b09be7dec32fc0143b3708a35a4c6',
     authToken : '7c6d18bd80942864a3100051d0dc8e8c',

@@ -19,3 +19,105 @@
     "recipients" : "+919448170557",
     "messageBody" : "Hello from Tara"
  }
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!-- <head> -->
+  <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+  <!-- <meta charset="utf-8">  -->
+  <!-- <title>Alert Module</title>  -->
+<!-- </head> -->
+<!-- <body> -->
+  <!-- <h1>Alerting Mechanism Selection</h1> -->
+  <!-- <form id="alertForm" action="/send-alert" method="post"> -->
+    <!-- <label for="alertType">Select Alert Mechanism:</label> -->
+    <!-- <input type="radio" name="alertType" value="sms" id="sms"> SMS  -->
+    <!-- <input type="radio" name="alertType" value="whatsapp" id="whatsapp"> WhatsApp -->
+    <!-- <input type="radio" name="alertType" value="mail" id="mail"> Email -->
+<!--  -->
+    <!-- <div id="smsFields" style="display:none;"> -->
+      <!-- <label for="recipients">Recipients (Comma-separated):</label> -->
+      <!-- <input type="text" id="recipients" name="recipients" required> -->
+      <!-- <label for="messageBody">Message Body:</label> -->
+      <!-- <textarea id="messageBody" name="messageBody" required></textarea> -->
+    <!-- </div> -->
+<!--  -->
+    <!-- <div id="mailFields" style="display: none;"> -->
+      <!-- <label for="title">Title:</label> -->
+      <!-- <input type="text" id="title" name="title"> -->
+      <!-- <label for="html">HTML:</label> -->
+      <!-- <textarea id="html" name="html"></textarea> -->
+    <!-- </div> -->
+<!--  -->
+    <!-- <button type="submit" name="submit">Send Alert</button> -->
+  <!-- </form> -->
+<!--  -->
+  <!-- <script src="script.js"></script> -->
+<!--  -->
+  <!-- <script> -->
+    JavaScript to handle showing/hiding mail fields when the "Email" option is selected
+    // const mailRadio = document.getElementById('mail');
+    // const mailFields = document.getElementById('mailFields');
+// 
+    // mailRadio.addEventListener('change', function () {
+      // if (mailRadio.checked) {
+        // mailFields.style.display = 'block';
+      // } else {
+        // mailFields.style.display = 'none';
+      // }
+    // });
+  // </script>
+<!--  -->
+<!-- <script> -->
+  JavaScript to handle showing/hiding mail fields when the "Email" option is
+  // const smsRadio = document.getElementById('sms') || document.getElementById('whatsapp') || document.getElementById('mail');
+  // const smsFields = document.getElementById('smsFields');
+  // smsRadio.addEventListener('change', function () {
+    // if (smsRadio.checked ) {
+      // smsFields.style.display = 'block';
+// 
+    // } else {
+      // smsFields.style.display = 'none';
+    // }
+  // });
+<!-- </script> -->
+<!-- </body> -->
+<!-- </html> -->
+
+
+<!-- index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="utf-8"> 
+    <title>Alert Module</title> 
+</head>
+<body>
+  <h1>Alerting Mechanism Selection</h1>
+  <form id="alertForm" action="/send-alert" method="post">
+    <label for="alertType">Select Alert Mechanism:</label>
+    <input type="radio" name="alertType" value="sms" id="sms"> SMS 
+    <input type="radio" name="alertType" value="whatsapp" id="whatsapp"> WhatsApp
+    <input type="radio" name="alertType" value="mail" id="mail"> Email
+
+    <label for="recipients">Recipients (Comma-separated):</label>
+    <input type="text" id="recipients" name="recipients" required>
+
+    <label for="messageBody">Message Body:</label>
+    <textarea id="messageBody" name="messageBody" required></textarea>
+
+     <div id="mailFields" >
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title">
+      <label for="html">HTML:</label>
+      <textarea id="html" name="html"></textarea>
+    </div>
+
+    <button type="submit" name="submit">Send Alert</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html> -->

@@ -20,29 +20,37 @@ app.get("/", (req,res)=>{
   res.sendFile(__dirname + "/index.html")
 });
 
-app.post('/send-alert', (req, res) => {
+app.post('/send-alert', async(req, res) => {
   const { alertType, recipients, messageBody } = req.body;
-
+try{
   switch (alertType) {
     case 'sms':
-      twilioSMS(recipients, messageBody);
-      break;
+        await twilioSMS(recipients, messageBody);
+        res.json({ success: true, message: 'SMS alert sent successfully.' });
+     break;
     case 'whatsapp':
-      twilioWhatsapp(recipients, messageBody);
-      break;
+      await twilioWhatsapp(recipients, messageBody);
+        res.json({ success: true, message: 'WhatsApp alert sent successfully.' });
+     break;
     case 'mail':
-      const {title, html} = req.body;
-      SMTPMail(recipients, title, messageBody, html);
+      const { title, html, recipients } = req.body;
+      if (!recipients || !Array.isArray(recipients)) {
+        console.error('Invalid recipients data');
+        res.status(400).json({ success: false, message: 'Invalid recipients data' });
+        return;
+      }
+      await SMTPMail(recipients, title, messageBody, html);
+        res.json({ success: true, message: 'Email alert sent successfully.' });
       break;
     default:
       console.error('Invalid alert type');
-  }
-  if(res)
-    res.json({ success: true, message: 'Alert sent successfully.' });
-  else
-  res.json({ success: false, message: 'Alert not sent. ' });
-
-});
+      res.status(400).json({ success: false, message: 'Invalid alert type' });
+    }
+  } catch (error) {
+    console.error('Error sending alert:', error);
+    res.status(500).json({ success: false, message: 'Failed to send alert.' });
+    }
+ });
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

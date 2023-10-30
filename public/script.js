@@ -1,9 +1,8 @@
-// script.js
-const sendSMS = require('./sendSMS');
-const sendWhatsapp = require('./sendWhatsapp');
-const sendMail = require('./sendMail');
+// Updated script.js (Use ES6 modules)
+import { sendSMS } from './sendSMS';
+import { sendWhatsapp } from './sendWhatsapp';
+import { sendMail } from './sendMail';
 
-// Updated script.js
 document.getElementById('alertForm').addEventListener('submit', async (event) => {
   event.preventDefault();
 
@@ -32,9 +31,12 @@ document.getElementById('alertForm').addEventListener('submit', async (event) =>
       },
       body: JSON.stringify({ alertType, recipients, messageBody, title, html }),
     });
-
     const result = await response.json();
-    console.log(result);
+    if (result.success) {
+      console.log(result.message); // Display success message
+    } else {
+      console.error(result.message); // Display error message
+    }
   } catch (error) {
     console.error('Error sending alert:', error);
   }
